@@ -8,8 +8,8 @@ Simon: Will you follow me? is a spin off of the classic game Simon. There will b
 
 Wireframes:
 
-!(wireframe, full screen)[https://i.imgur.com/qUN0n75.jpg]
-!(wireframe, small screen and mobile)[[https://i.imgur.com/ztXa9no.jpg]
+![wireframe, full screen](https://i.imgur.com/qUN0n75.jpg) /n
+![wireframe, small screen and mobile](https://i.imgur.com/ztXa9no.jpg)
 
 Requirements:
 MVP
