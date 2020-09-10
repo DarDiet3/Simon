@@ -13,12 +13,12 @@ Simon: Will you follow me? is a spin off of the classic game Simon. There will b
 
 ## Requirements:
 ### MVP
-Features:
+* Features:
     - Four color squares
     - Instructions tab
     - Score Tab
     - Title
-Functions: 
+* Functions: 
     - Random, repeated sequence of colors flashing
     - Add on one color to sequence after each successful playback
     - Count Successful playbacks
@@ -28,7 +28,7 @@ Functions:
 ### Post MVP
 Will not work top to bottom on list, will select from list adding a feature before stepping on to the next.
 
-Features:
+* Features:
     - Save score across reload
     - Leader board
     - Achievements
@@ -36,7 +36,7 @@ Features:
         - Select two or three shape options
         - Offer two or three color modes
 
-Functions:
+* Functions:
     - Hard mode: 
         - Increased speed of presentation
     - Progressive Mode:
