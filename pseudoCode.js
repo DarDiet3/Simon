@@ -16,13 +16,13 @@
   *     colors presented
   *     correct items
   *     click counter
-  * funcs -
-  *   XX  random color selector
-  *         push to end of color selector
-  *     change apearance of the appropriate square
+  /** */ funcs - */
+  /**    random color selector
+  *         push to end of color selector */
+  /**    change apearance of the appropriate square
   *         use CSS to half tint lighter
-  *         bonus, use a circle gradient in middle of the square
-  *     check for wins 
+  *         bonus, use a circle gradient in middle of the square */
+ /**     check for wins 
   *         compare list of colors presented to list of colors clicked
   *         clear list if it is the same
   *         add 1 to the sucessful play back feature

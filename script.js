@@ -3,25 +3,26 @@ const boxOne = document.querySelector("#one");
 const boxTwo = document.querySelector("#two");
 const boxThree = document.querySelector("#three");
 const boxFour = document.querySelector("#four");
-
+const gameBoard = document.querySelector(".gameBoard")
 
 // Global Variables
 const idList = [1, 2, 3, 4];
 const idPresented = [];
-const isUserSelected = [];
+const idUserSelected = [];
 const lightColors = {
     one: "#fae675",
     two: "#4182bc",
     three: "#e45356",
     four: "#7da75e"
-}
+};
+let correctSequences = 0;
 
 // Interval timers
 
 
 
 // Event Listeners
-
+gameBoard.addEventListener("click", userGameboardClick)
 
 
 
@@ -53,6 +54,7 @@ function lightUpSimon(index) {
 
     }
 }
+
 let index = 0;
 function colorPresentHandler(){
         setTimeout(() => {
@@ -65,20 +67,36 @@ function colorPresentHandler(){
     //  Stack overflow solution to similar issue: https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop;
 }
 
-function lightSimon2() {
-    let changeColor = setInterval(() => {boxOne.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.one})`}, 1000);
-    setTimeout(() => {clearInterval(changeColor); boxOne.style.backgroundImage = ""}, 2000);
+function userGameboardClick() {
+    let square = event.target.id;
+    switch(true) {
+        case square === "one":
+            idUserSelected.push(1)
+            break;
+        case square === "two":
+            idUserSelected.push(2)
+            break;
+        case square === "three":
+            idUserSelected.push(3)
+            break;
+        case square === "four":
+            idUserSelected.push(4)
+            break;
+    }
+    console.log(idUserSelected)
 }
 
-for(let i = 0; i < 10; i++) {
-    colorSelector(); 
+function confirmSelection(userSelected, presented) {
+    let answer = presented.join("");
+    let userAnswer = userSelected.join("");
+    if(userAnswer === answer)
 }
+// function startGameHandler {
+//     /**Here will be the logic that will check everything working */
+// }
 
-console.log(idPresented)
+// for(let i = 0; i < 10; i++) {
+//     colorSelector(); 
+// }
 
-colorPresentHandler()
-// lightSimon2()
-// lightUpSimon(1)
-// lightUpSimon(2)
-// lightUpSimon(3)
-// lightUpSimon(4)
+// console.log(idPresented)
