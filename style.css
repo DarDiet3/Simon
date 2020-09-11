@@ -37,11 +37,14 @@ h2.subtitle {
     display: flex;
     padding: 10px;
     height: 75vh;
+
 }
 
-.instructions {
+.sideBar {
     border: 2px black solid;
     width: 17vw;
+    border-right: none;
+    padding: 10px;
 }
 
 .boardArea {
@@ -64,7 +67,13 @@ h2.subtitle {
 
 .score {
     border: 2px black solid;
+    border-left: none;
     width: 17vw;
+    padding: 3% 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ 
 }
 
 footer {
@@ -126,6 +135,45 @@ button {
     color: white;
     font-size: 48px;
     padding: 5px;
+}
+
+.scoreBox {
+    border: 3px solid #1C1E21;
+    border-radius: 8px;
+    text-align: center;
+    background: white;
+}
+
+.scoreHead {
+    margin: 0px 0px 20px 0px;
+    padding: 10px;
+    border-bottom: 4px solid #1C1E21;
+    background-color: #FF9F1C;
+    border-radius: 5px 5px 0 0;
+}
+
+.scoreBox p {
+    font-size: 65px;
+    margin: 24px auto;
+}
+.instructions {
+    border: 3px solid #1C1E21;
+    border-radius: 8px;
+    text-align: center;
+    background: white;
+}
+.instructions h2 {
+    margin: 0px;
+    padding: 10px;
+    border-bottom: 4px solid #1C1E21;
+    background-color: #FF9F1C;
+    border-radius: 5px 5px 0 0; 
+    text-align: center;  
+}
+.instructions p {
+    text-align: left;
+    margin: 8px 5px;
+    text-indent: 12px;
 }
 /* 
 font-family: 'Montserrat', sans-serif;

@@ -28,13 +28,13 @@
   *         add 1 to the sucessful play back feature
   *         add one to click counter */
   /**
-  * event listeners
-  *     Clicks on the buttons (apply to whole board)
-  *     Add to the list of user selected
+  * event listeners */
+ /**    Clicks on the buttons (apply to whole board)*/
+ /**     Add to the list of user selected
   *     also change styling of the board
-  *     after each click check for wins 
-  *     
-  * Intervals
+  *     after each click check for wins */
+     
+  /** Intervals
   *     Presentation: use it to present the colors on the list in a slow but steady pace
   *     Color flash: two toggles to flash on and off
   * 
