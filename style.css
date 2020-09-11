@@ -120,8 +120,14 @@ footer {
 }
 
 button {
-    font-family: 'Montserrat', sans-serif
+    font-family: 'Montserrat', sans-serif;
+    background: #76bcd7;
+    font-size: 28px;
+    border-radius: 8px;
+    padding: 4px 8px;
+    
 }
+
 
 .lost {
     display: none;
@@ -174,6 +180,11 @@ button {
     text-align: left;
     margin: 8px 5px;
     text-indent: 12px;
+}
+
+.startReset {
+    display: flex;
+    justify-content: space-evenly;
 }
 /* 
 font-family: 'Montserrat', sans-serif;

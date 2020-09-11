@@ -7,10 +7,12 @@ const gameBoard = document.querySelector(".gameBoard");
 const lostBox = document.querySelector(".lost");
 const userScoreDisplay = document.querySelector("#topBox p");
 const highScoreDisplay = document.querySelector("#bottomBox p");
+const playButton = document.querySelector("#startGame");
+const resetButton = document.querySelector("#resetGame");
 
 // Global Variables
 const idList = [1, 2, 3, 4];
-const idPresented = [];
+let idPresented = [];
 let idUserSelected = [];
 const lightColors = {
     one: "#fae675",
@@ -21,13 +23,12 @@ const lightColors = {
 let correctSequences = 0;
 let highScore = 0;
 let clicks = 0;
-// Interval timers
-
-
+let presentIndex = 0;
 
 // Event Listeners
-gameBoard.addEventListener("click", userGameboardClick)
-
+gameBoard.addEventListener("click", userGameboardClick);
+playButton.addEventListener("click", startGameHandler);
+resetButton.addEventListener("click", resetGameHandler);
 
 
 // Functions
@@ -60,7 +61,7 @@ function lightUpSimon(index, lightTime, darkTime = lightTime * 2) {
     }
 }
 
-let presentIndex = 0;
+
 function colorPresentHandler(){
         setTimeout(() => {
             presentIndex++;
@@ -92,7 +93,6 @@ function userGameboardClick() {
             idUserSelected.push(4)
             break;
     }
-    console.log(idUserSelected)
     confirmSelection();
 }
 
@@ -123,19 +123,23 @@ function confirmSelection() {
         lostBox.style.display = "block";
     }
 }
-// function startGameHandler {
-//     /**Here will be the logic that will check everything working */
-// }
 
-for(let i = 0; i < 3; i++) {
-    colorSelector(); 
+function startGameHandler() {
+    event.preventDefault();
+    colorSelector();
+    colorPresentHandler();
 }
 
-console.log(`idPresented = ${idPresented}`)
+function resetGameHandler() {
+    event.preventDefault();
+    idPresented = [];
+    idUserSelected = [];
+    clicks = 0;
+    correctSequences = 0;
+    userScoreDisplay.innerText = correctSequences;
+    lostBox.style.display = "none"
+    presentIndex = 0;
+}
 
 
-
-        // correctSequences ++;
-        // idUserSelected = [];
-        // colorSelector();
-        // colorPresentHandler();
+// console.log(`idPresented = ${idPresented}`)
