@@ -5,7 +5,9 @@ const boxThree = document.querySelector("#three");
 const boxFour = document.querySelector("#four");
 const gameBoard = document.querySelector(".gameBoard");
 const lostBox = document.querySelector(".lost");
+const userScore = document.querySelector("#topBox p")
 
+console.log(userScore)
 // Global Variables
 const idList = [1, 2, 3, 4];
 const idPresented = [];
@@ -36,23 +38,23 @@ function colorSelector() {
     console.log(`idPresented = ${idPresented}`)
 }
 
-function lightUpSimon(index) {
+function lightUpSimon(index, lightTime, darkTime = lightTime * 2) {
     let changeColor;
     switch(true) {
         case index === 1:
-            changeColor = setInterval(() => {boxOne.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.one})`}, 1000);
-            setTimeout(() => {clearInterval(changeColor); boxOne.style.backgroundImage = ""}, 2000);
+            changeColor = setInterval(() => {boxOne.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.one})`}, lightTime);
+            setTimeout(() => {clearInterval(changeColor); boxOne.style.backgroundImage = ""}, darkTime);
             break;
         case index === 2:
-            changeColor = setInterval(() => {boxTwo.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.two})`}, 1000);
-            setTimeout(() => {clearInterval(changeColor); boxTwo.style.backgroundImage = ""}, 2000);            break;
+            changeColor = setInterval(() => {boxTwo.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.two})`}, lightTime);
+            setTimeout(() => {clearInterval(changeColor); boxTwo.style.backgroundImage = ""}, darkTime);            break;
         case index === 3:
-            changeColor = setInterval(() => {boxThree.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.three})`}, 1000);
-            setTimeout(() => {clearInterval(changeColor); boxThree.style.backgroundImage = ""}, 2000);
+            changeColor = setInterval(() => {boxThree.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.three})`}, lightTime);
+            setTimeout(() => {clearInterval(changeColor); boxThree.style.backgroundImage = ""}, darkTime);
             break;
         case index === 4:
-            changeColor = setInterval(() => {boxFour.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.four})`}, 1000);
-            setTimeout(() => {clearInterval(changeColor); boxFour.style.backgroundImage = ""}, 2000);
+            changeColor = setInterval(() => {boxFour.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.four})`}, lightTime);
+            setTimeout(() => {clearInterval(changeColor); boxFour.style.backgroundImage = ""}, darkTime);
             break;
 
     }
@@ -62,7 +64,7 @@ let presentIndex = 0;
 function colorPresentHandler(){
         setTimeout(() => {
             presentIndex++;
-            lightUpSimon(idPresented[presentIndex-1]);
+            lightUpSimon(idPresented[presentIndex-1],1000);
             if(presentIndex <= idPresented.length) {
                 colorPresentHandler();
             }
@@ -104,6 +106,7 @@ function confirmSelection() {
             idUserSelected = [];
             clicks = 0;
             correctSequences ++;
+            
             colorSelector();
             presentIndex = 0;
             colorPresentHandler();

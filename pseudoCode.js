@@ -16,7 +16,7 @@
   *     colors presented
   *     correct items
   *     click counter
-  /** */ funcs - */
+  /**  funcs - */
   /**    random color selector
   *         push to end of color selector */
   /**    change apearance of the appropriate square
@@ -26,8 +26,8 @@
   *         compare list of colors presented to list of colors clicked
   *         clear list if it is the same
   *         add 1 to the sucessful play back feature
-  *         add one to click counter
-  * 
+  *         add one to click counter */
+  /**
   * event listeners
   *     Clicks on the buttons (apply to whole board)
   *     Add to the list of user selected
