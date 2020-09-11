@@ -5,9 +5,9 @@ const boxThree = document.querySelector("#three");
 const boxFour = document.querySelector("#four");
 const gameBoard = document.querySelector(".gameBoard");
 const lostBox = document.querySelector(".lost");
-const userScore = document.querySelector("#topBox p")
+const userScoreDisplay = document.querySelector("#topBox p");
+const highScoreDisplay = document.querySelector("#bottomBox p");
 
-console.log(userScore)
 // Global Variables
 const idList = [1, 2, 3, 4];
 const idPresented = [];
@@ -110,7 +110,7 @@ function confirmSelection() {
             idUserSelected = [];
             clicks = 0;
             correctSequences ++;
-            
+            userScoreDisplay.innerText = correctSequences;
             colorSelector();
             presentIndex = 0;
             colorPresentHandler();
@@ -118,6 +118,7 @@ function confirmSelection() {
     } else {
         if(correctSequences > highScore) {
             highScore = correctSequences;
+            highScoreDisplay.innerText = highScore;
         }
         lostBox.style.display = "block";
     }
