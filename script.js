@@ -58,12 +58,12 @@ function lightUpSimon(index) {
     }
 }
 
-let index = 0;
+let presentIndex = 0;
 function colorPresentHandler(){
         setTimeout(() => {
-            index++;
-            lightUpSimon(idPresented[index-1]);
-            if(index <= idPresented.length) {
+            presentIndex++;
+            lightUpSimon(idPresented[presentIndex-1]);
+            if(presentIndex <= idPresented.length) {
                 colorPresentHandler();
             }
         },2050);
@@ -93,19 +93,19 @@ function userGameboardClick() {
 function confirmSelection() {
     let userAnswer = idUserSelected.join("");
     let answerHolder = [];
-    console.log(clicks)
     clicks ++;
     for(let i = 0; i < clicks; i++) {
         answerHolder.push(idPresented[i])
     }
     let answer = answerHolder.join("");
-
+    console.log(clicks)
     if(userAnswer === answer) {
         if(clicks === idPresented.length) {
             idUserSelected = [];
             clicks = 0;
             correctSequences ++;
             colorSelector();
+            presentIndex = 0;
             colorPresentHandler();
         }
     } else {
