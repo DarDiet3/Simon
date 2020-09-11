@@ -76,15 +76,19 @@ function userGameboardClick() {
     let square = event.target.id;
     switch(true) {
         case square === "one":
-            idUserSelected.push(1)
+            lightUpSimon(1,0,250);
+            idUserSelected.push(1);
             break;
         case square === "two":
+            lightUpSimon(2,0,250);
             idUserSelected.push(2)
             break;
         case square === "three":
+            lightUpSimon(3,0,250);
             idUserSelected.push(3)
             break;
         case square === "four":
+            lightUpSimon(4,0,250);
             idUserSelected.push(4)
             break;
     }
