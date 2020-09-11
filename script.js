@@ -29,6 +29,7 @@ let presentIndex = 0;
 gameBoard.addEventListener("click", userGameboardClick);
 playButton.addEventListener("click", startGameHandler);
 resetButton.addEventListener("click", resetGameHandler);
+lostBox.addEventListener("click", resetGameHandler);
 
 
 // Functions
