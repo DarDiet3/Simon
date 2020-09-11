@@ -3,12 +3,13 @@ const boxOne = document.querySelector("#one");
 const boxTwo = document.querySelector("#two");
 const boxThree = document.querySelector("#three");
 const boxFour = document.querySelector("#four");
-const gameBoard = document.querySelector(".gameBoard")
+const gameBoard = document.querySelector(".gameBoard");
+const lostBox = document.querySelector(".lost");
 
 // Global Variables
 const idList = [1, 2, 3, 4];
 const idPresented = [];
-const idUserSelected = [];
+let idUserSelected = [];
 const lightColors = {
     one: "#fae675",
     two: "#4182bc",
@@ -16,7 +17,8 @@ const lightColors = {
     four: "#7da75e"
 };
 let correctSequences = 0;
-
+let highScore = 0;
+let clicks = 0;
 // Interval timers
 
 
@@ -30,7 +32,8 @@ gameBoard.addEventListener("click", userGameboardClick)
 
 function colorSelector() {
     let index = Math.floor(Math.random() * idList.length);
-    idPresented.push(idList[index])
+    idPresented.push(idList[index]);
+    console.log(`idPresented = ${idPresented}`)
 }
 
 function lightUpSimon(index) {
@@ -84,19 +87,47 @@ function userGameboardClick() {
             break;
     }
     console.log(idUserSelected)
+    confirmSelection();
 }
 
-function confirmSelection(userSelected, presented) {
-    let answer = presented.join("");
-    let userAnswer = userSelected.join("");
-    if(userAnswer === answer)
+function confirmSelection() {
+    let userAnswer = idUserSelected.join("");
+    let answerHolder = [];
+    console.log(clicks)
+    clicks ++;
+    for(let i = 0; i < clicks; i++) {
+        answerHolder.push(idPresented[i])
+    }
+    let answer = answerHolder.join("");
+
+    if(userAnswer === answer) {
+        if(clicks === idPresented.length) {
+            idUserSelected = [];
+            clicks = 0;
+            correctSequences ++;
+            colorSelector();
+            colorPresentHandler();
+        }
+    } else {
+        if(correctSequences > highScore) {
+            highScore = correctSequences;
+        }
+        lostBox.style.display = "block";
+    }
 }
 // function startGameHandler {
 //     /**Here will be the logic that will check everything working */
 // }
 
-// for(let i = 0; i < 10; i++) {
-//     colorSelector(); 
-// }
+for(let i = 0; i < 3; i++) {
+    colorSelector(); 
+}
 
-// console.log(idPresented)
+console.log(`idPresented = ${idPresented}`)
+
+
+
+        // correctSequences ++;
+        // idUserSelected = [];
+        // colorSelector();
+        // colorPresentHandler();
