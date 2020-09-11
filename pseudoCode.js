@@ -17,7 +17,7 @@
   *     correct items
   *     click counter
   * funcs -
-  *     random color selector
+  *   XX  random color selector
   *         push to end of color selector
   *     change apearance of the appropriate square
   *         use CSS to half tint lighter

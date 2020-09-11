@@ -1,3 +1,118 @@
-body{
-    background: steelblue;
+body {
+    background: #FBFAEF;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    max-width: 100vw;
 }
+
+header {
+    background: #1C1E21;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+h1 {
+    margin: 0px auto;
+    font-size: 56px;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+p {
+    font-family: "Montserrat", sans-serif;
+}
+
+h2.subtitle {
+    margin: 10px auto 0px auto;
+    font-size: 26px;
+}
+
+.content {
+    display: flex;
+    padding: 10px;
+    height: 75vh;
+}
+
+.instructions {
+    border: 2px black solid;
+    width: 17vw;
+}
+
+.boardArea {
+    border: 2px black solid;
+    width: 66vw;
+    text-align: center;
+}
+
+.gameBoard {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-rows: 49.5% 49.5%;
+    grid-template-columns: 49.5% 49.5%;
+    grid-gap: 1%;
+    margin: 10px auto 25px auto;
+    background-color: #1C1E21;
+    border-radius: 10%;
+}
+
+.score {
+    border: 2px black solid;
+    width: 17vw;
+}
+
+footer {
+    align-self: flex-end;
+}
+
+.boardSection {
+    border: 2px solid #1C1E21;
+    border-radius: 25px;
+    
+}
+
+#one {
+    grid-row: 1;
+    grid-column: 1;
+    background-color: #FADB3C;
+    border-top: 8px solid #1C1E21;
+    border-left: 8px solid #1C1E21;
+    
+}
+
+#two {
+    grid-row: 1;
+    grid-column: 2;
+    background-color: #4182bc;
+    border-top: 8px solid #1C1E21;
+    border-right: 8px solid #1C1E21;
+}
+
+#three {
+    grid-row: 2;
+    grid-column: 1;
+    background-color: #e45356;
+    border-bottom: 8px solid #1C1E21;
+    border-left: 8px solid #1C1E21;
+}
+
+#four {
+    grid-row: 2;
+    grid-column: 2;
+    background-color: #7da75e;
+    border-bottom: 8px solid #1C1E21;
+    border-right: 8px solid #1C1E21;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif
+}
+/* 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Orbitron', sans-serif; */
