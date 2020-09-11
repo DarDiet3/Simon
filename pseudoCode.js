@@ -31,6 +31,7 @@
   * event listeners
   *     Clicks on the buttons (apply to whole board)
   *     Add to the list of user selected
+  *     also change styling of the board
   *     after each click check for wins 
   *     
   * Intervals
