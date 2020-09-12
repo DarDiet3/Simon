@@ -9,6 +9,8 @@ const userScoreDisplay = document.querySelector("#topBox p");
 const highScoreDisplay = document.querySelector("#bottomBox p");
 const playButton = document.querySelector("#startGame");
 const resetButton = document.querySelector("#resetGame");
+const howToPlay = document.querySelector(".instructions h2");
+const instructions = document.querySelectorAll(".instructions p")
 
 // Global Variables
 const idList = [1, 2, 3, 4];
@@ -30,8 +32,9 @@ gameBoard.addEventListener("click", userGameboardClick);
 playButton.addEventListener("click", startGameHandler);
 resetButton.addEventListener("click", resetGameHandler);
 lostBox.addEventListener("click", resetGameHandler);
+howToPlay.addEventListener("click", instructionsHandler);
 
-
+console.log(howToPlay.classList)
 // Functions
 
 function colorSelector() {
@@ -142,6 +145,24 @@ function resetGameHandler() {
     presentIndex = 0;
 }
 
+function instructionsHandler() {
+    let newWidth = howToPlay.clientWidth;
+    const instSection = document.querySelector(".instructions section");
+    for(let i = 0; i < instructions.length; i++) {
+        if(instructions[i].style.display === "block") {
+            instructions[i].style.display = "";
+            instSection.style.border = "";
+            instSection.style.borderRadius = "";
+            
+        } else {
+            instructions[i].style.display = "block";
+            instSection.style.width = `${newWidth}px`;
+            instSection.style.border = "3px solid #1C1E21";
+            instSection.style.borderRadius = "0 0 8px 8px";
+            instSection.style.transform = "translate(-3px, -3px)";
+        }
+    }
+}
 
 // console.log(`idPresented = ${idPresented}`)
 
