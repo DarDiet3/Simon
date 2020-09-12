@@ -128,7 +128,7 @@ function confirmSelection() {
 function startGameHandler() {
     event.preventDefault();
     colorSelector();
-    colorPresentHandler();
+    lightUpSimon(idPresented[0],350);
 }
 
 function resetGameHandler() {
@@ -144,3 +144,4 @@ function resetGameHandler() {
 
 
 // console.log(`idPresented = ${idPresented}`)
+

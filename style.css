@@ -5,6 +5,9 @@ body {
     min-height: 100vh;
     flex-direction: column;
     max-width: 100vw;
+    min-width: 650px;
+    width: auto !important;
+    width: 650px;
 }
 
 header {
@@ -37,7 +40,6 @@ h2.subtitle {
     display: flex;
     padding: 10px;
     height: 75vh;
-
 }
 
 .sideBar {
@@ -45,6 +47,7 @@ h2.subtitle {
     width: 17vw;
     border-right: none;
     padding: 10px;
+    
 }
 
 .boardArea {
@@ -54,6 +57,7 @@ h2.subtitle {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 66%;
 }
 
 .gameBoard {
@@ -149,6 +153,9 @@ button {
     
 }
 
+button:hover {
+    background: #C0E0ED;
+}
 
 .lost {
     display: none;
@@ -212,6 +219,25 @@ button {
     align-items: center;
     width: 80%;
     margin: 15px;
+}
+
+@media (max-width: 1000px) {
+    .content {
+        flex-wrap: wrap;
+    }
+    .sideBar {
+        width: 100vw;
+        align-self: flex-start;
+        border: 2px solid black;
+    }
+    .boardArea {
+        width: 72%;
+    }
+    .score {
+        width: 23.75%;
+    }
+    .scoreBox {
+    }
 }
 /* 
 font-family: 'Montserrat', sans-serif;
