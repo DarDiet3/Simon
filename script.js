@@ -31,7 +31,24 @@ let presentIndex = 0;
 let gameSpeed = 1000;
 let colorInterval = gameSpeed * 2.05;
 let speedDisplay;
+let ls1;
+let ls2;
+let ls3;
+let ls4;
+let ls5;
+let ln1;
+let ln2;
+let ln3;
+let ln4;
+let ln5;
+let topScores = [];
+let scoreId;
 
+// Local Storage Variables
+const currentHighScore = localStorage.getItem("highScore");
+window.onload = (event) => {
+    (highScoreDisplay.innerText = currentHighScore);
+};
 // Event Listeners
 gameBoard.addEventListener("click", userGameboardClick);
 playButton.addEventListener("click", startGameHandler);
@@ -124,8 +141,10 @@ function confirmSelection() {
             colorPresentHandler();
         }
     } else {
+        // updateLeaderBoard(correctSequences);
         if(correctSequences > highScore) {
             highScore = correctSequences;
+            localStorage.setItem("highScore", highScore);
             highScoreDisplay.innerText = highScore;
         }
         lostBox.style.display = "block";
@@ -140,9 +159,11 @@ function startGameHandler() {
 
 function resetGameHandler() {
     event.preventDefault();
+    // updateLeaderBoard(correctSequences);
     if(correctSequences > highScore) {
         highScore = correctSequences;
         highScoreDisplay.innerText = highScore;
+        
     }
     idPresented = [];
     idUserSelected = [];
@@ -199,6 +220,21 @@ function displaySpeed(speed) {
     
     userSpeed.innerText = speedDisplay;
 }
+
+function updateLeaderBoard(score) {
+    
+}
+
+// Classes
+
+class topScoreEntry {
+    constructor(name, score) {
+        this.name = name;
+        this.score = score;
+    }
+}
+
+let default1 = new topScoreEntry(" ", "0")
 
 // console.log(`idPresented = ${idPresented}`)
 

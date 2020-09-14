@@ -193,7 +193,47 @@ button:hover {
     background-color: #FF9F1C;
     border-radius: 5px 5px 0 0;
 }
+#leaderBoard .scoreHead {
+    font-size: medium;
+    margin: 0px;
+}
 
+#leaderBoardDisplay {
+    display: grid;
+    grid-template-rows: 1.5em 1.25em 1.25em 1.25em 1.25em 1.25em;
+    grid-template-columns: 1fr 4fr 4fr;
+    row-gap: 1px;
+    background: black;
+    border-radius: 0 0 8px 8px;
+}
+
+.leaderLine {
+    font-family: 'Orbitron', sans-serif;
+    background: white;
+    text-align: center;
+}
+
+#ln1, #ln2, #Ln3, #ln4, #ln5 {
+    text-align: left;
+}
+#lrank, #lname, #lscore {
+    border-bottom: 2px solid black;
+    background: #757780;
+    padding: 1% 0 1% 0;
+}
+
+
+#lr2, #lr4, #ln2, #ln4, #ls2, #ls4 {
+    background: #B5B6BA;
+}
+
+#lr5 {
+    border-bottom-left-radius: 6px;
+}
+
+#ls5 {
+    border-bottom-right-radius: 6px;
+}
 .scoreBox p {
     font-size: 65px;
     margin: 24px auto;
@@ -257,7 +297,7 @@ h3 {
 .gameSpeed {
     width: 95%;
     /* border: 1px red solid; */
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
     text-align: center;
     
 
@@ -273,22 +313,16 @@ h3 {
     align-items: center;
     /* flex-wrap: wrap; */
 }
-.speedBar li {
-    display: flex;
-    align-items: center;
+
+#userSpeed {
     font-family: 'Orbitron', sans-serif;
-    margin: 0 3% 0 0;
-    font-size: small;
-    height: 35px;
-    padding: 0px 5px 0px 5px;
-
+    color: white;
+    margin-bottom: 10px;
 }
 
-.speedBar li:hover {
-    background: #B5B6BA;
-    cursor: pointer;
+.clearfix {
+    clear: both;
 }
-
 
 
 @media (max-width: 1000px) {
