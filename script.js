@@ -233,7 +233,7 @@ function startGameHandler() {
 
 function resetGameHandler() {
     event.preventDefault();
-    // checkLeaderBoard(correctSequences);
+    checkLeaderBoard(correctSequences);
     if(correctSequences > highScore) {
         highScore = correctSequences;
         highScoreDisplay.innerText = highScore;
@@ -296,61 +296,61 @@ function displaySpeed(speed) {
 }
 
 function checkLeaderBoard(score) {
-
+    topScores = JSON.parse(localStorage.getItem("topScores"))
     let name;
     let newEntry;
     switch(true) {
-        case score >= parseInt(localStorage.getItem("ls1")):
+        case score >= topScores[0][0]:
             name = prompt("Congrats! You climbed to the top of the leader board! Please enter your name!");
             newEntry = [score, name];
             topScores.unshift(newEntry);
             topScores.pop()
             updateLeaderBoard();
-            localStorage.setItem("ls1", score);
-            localStorage.setItem("ln1", name);
+            // localStorage.setItem("ls1", score);
+            // localStorage.setItem("ln1", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
-        case score >= parseInt(localStorage.getItem("ls2")):
+        case score >= topScores[1][0]:
             name = prompt("Congrats! You're on the leader board! Please enter your name!");
             newEntry = [score, name];
             topScores.splice(1, 0, newEntry)
             console.log(topScores);
             topScores.pop();
             updateLeaderBoard();
-            localStorage.setItem("ls2", score);
-            localStorage.setItem("ln2", name);
+            // localStorage.setItem("ls2", score);
+            // localStorage.setItem("ln2", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
-        case score >= parseInt(localStorage.getItem("ls3")):
+        case score >= topScores[2][0]:
             name = prompt("Congrats! You're on the leader board! Please enter your name!");
             newEntry = [score, name];
             topScores.splice(2, 0, newEntry)
             console.log(topScores);
             topScores.pop()
             updateLeaderBoard();
-            localStorage.setItem("ls3", score);
-            localStorage.setItem("ln3", name);
+            // localStorage.setItem("ls3", score);
+            // localStorage.setItem("ln3", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
-        case score >= parseInt(localStorage.getItem("ls4")):
+        case score >= topScores[3][0]:
             name = prompt("Congrats! You're on the leader board! Please enter your name!");
             newEntry = [score, name];
             topScores.splice(3, 0, newEntry)
             console.log(topScores);
             topScores.pop()
             updateLeaderBoard();
-            localStorage.setItem("ls4", score);
-            localStorage.setItem("ln4", name);
+            // localStorage.setItem("ls4", score);
+            // localStorage.setItem("ln4", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
-        case score >= parseInt(localStorage.getItem("ls5")):
+        case score >= topScores[4][0]:
             name = prompt("Congrats! You just snuck on to the leader board! Please enter your name!");
             newEntry = [score, name];
             topScores.splice(4, 0, newEntry)
             console.log(topScores);
             updateLeaderBoard();
-            localStorage.setItem("ls5", score);
-            localStorage.setItem("ln5", name);
+            // localStorage.setItem("ls5", score);
+            // localStorage.setItem("ln5", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
     }
@@ -422,11 +422,11 @@ function toggleColorBlindMode() {
         boxThree.classList.add("colorBlindMode3");
         boxFour.classList.add("colorBlindMode4");
     } else {
-        boxOne.classList.remove("colorBlindMode");
-        boxTwo.classList.remove("colorBlindMode");
-        boxThree.classList.remove("colorBlindMode");
-        boxFour.classList.remove("colorBlindMode");
+        boxOne.classList.remove("colorBlindMode1");
+        boxTwo.classList.remove("colorBlindMode2");
+        boxThree.classList.remove("colorBlindMode3");
+        boxFour.classList.remove("colorBlindMode4");
     }
 }
-// console.log(`idPresented = ${idPresented}`)
+
 
