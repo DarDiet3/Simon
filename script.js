@@ -42,6 +42,7 @@ let currentHighScore = localStorage.getItem("highScore");
 
 try {
     let topScores = JSON.parse(localStorage.getItem("topScores"));
+    return topScores;
 } catch(err) {
     let topScores = [
         [0,""],
@@ -49,7 +50,8 @@ try {
         [0,""],
         [0,""],
         [0,""]
-    ]
+    ];
+    return topScores;
 } finally {
     let ls1 = topScores[0][0];
     let ls2 = topScores[1][0];
