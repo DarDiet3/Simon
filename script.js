@@ -11,6 +11,8 @@ const playButton = document.querySelector("#startGame");
 const resetButton = document.querySelector("#resetGame");
 const howToPlay = document.querySelector(".instructions h2");
 const instructions = document.querySelectorAll(".instructions p")
+const speedBar = document.querySelector(".speedBar");
+const userSpeed = document.querySelector("#userSpeed");
 
 // Global Variables
 const idList = [1, 2, 3, 4];
@@ -26,6 +28,9 @@ let correctSequences = 0;
 let highScore = 0;
 let clicks = 0;
 let presentIndex = 0;
+let gameSpeed = 1000;
+let colorInterval = gameSpeed * 2.05;
+let speedDisplay;
 
 // Event Listeners
 gameBoard.addEventListener("click", userGameboardClick);
@@ -34,13 +39,11 @@ resetButton.addEventListener("click", resetGameHandler);
 lostBox.addEventListener("click", resetGameHandler);
 howToPlay.addEventListener("click", instructionsHandler);
 
-console.log(howToPlay.classList)
 // Functions
 
 function colorSelector() {
     let index = Math.floor(Math.random() * idList.length);
     idPresented.push(idList[index]);
-    console.log(`idPresented = ${idPresented}`)
 }
 
 function lightUpSimon(index, lightTime, darkTime = lightTime * 2) {
@@ -52,7 +55,8 @@ function lightUpSimon(index, lightTime, darkTime = lightTime * 2) {
             break;
         case index === 2:
             changeColor = setInterval(() => {boxTwo.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.two})`}, lightTime);
-            setTimeout(() => {clearInterval(changeColor); boxTwo.style.backgroundImage = ""}, darkTime);            break;
+            setTimeout(() => {clearInterval(changeColor); boxTwo.style.backgroundImage = ""}, darkTime);            
+            break;
         case index === 3:
             changeColor = setInterval(() => {boxThree.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.three})`}, lightTime);
             setTimeout(() => {clearInterval(changeColor); boxThree.style.backgroundImage = ""}, darkTime);
@@ -69,11 +73,11 @@ function lightUpSimon(index, lightTime, darkTime = lightTime * 2) {
 function colorPresentHandler(){
         setTimeout(() => {
             presentIndex++;
-            lightUpSimon(idPresented[presentIndex-1],1000);
+            lightUpSimon(idPresented[presentIndex-1],gameSpeed);
             if(presentIndex <= idPresented.length) {
                 colorPresentHandler();
             }
-        },2050);
+        },colorInterval);
     //  Stack overflow solution to similar issue: https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop;
 }
 
@@ -136,6 +140,10 @@ function startGameHandler() {
 
 function resetGameHandler() {
     event.preventDefault();
+    if(correctSequences > highScore) {
+        highScore = correctSequences;
+        highScoreDisplay.innerText = highScore;
+    }
     idPresented = [];
     idUserSelected = [];
     clicks = 0;
@@ -143,6 +151,7 @@ function resetGameHandler() {
     userScoreDisplay.innerText = correctSequences;
     lostBox.style.display = "none"
     presentIndex = 0;
+    
 }
 
 function instructionsHandler() {
@@ -162,6 +171,33 @@ function instructionsHandler() {
             instSection.style.transform = "translate(-3px, -3px)";
         }
     }
+}
+
+function displaySpeed(speed) {
+    switch (true) {
+        case parseInt(speed) === 1:
+            gameSpeed = 1000;
+            colorInterval = gameSpeed * 2.05;
+            speedDisplay = "SLOW";
+            break;
+        case parseInt(speed) === 2:
+            gameSpeed = 500;
+            colorInterval = gameSpeed * 2.05;
+            speedDisplay = "NORMAL";
+            break;
+        case parseInt(speed) === 3:
+            gameSpeed = 300;
+            colorInterval = gameSpeed * 2.05;
+            speedDisplay = "FAST";
+            break;
+        case parseInt(speed) === 4:
+            gameSpeed = 100;
+            colorInterval = gameSpeed * 2.05;
+            speedDisplay = "FREAKY FAST";
+            break;
+    }
+    
+    userSpeed.innerText = speedDisplay;
 }
 
 // console.log(`idPresented = ${idPresented}`)
