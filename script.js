@@ -50,6 +50,13 @@ let highScore = localStorage.getItem("highScore")
 window.addEventListener ("load", (event) => {
     (highScoreDisplay.innerText = currentHighScore);
     console.log(topScores)
+    topScores = [
+        [5, "Darci"],
+        [4, "Darci"],
+        [3, "Darci"],
+        [2, "Jo"],
+        [1, "Jo"]
+        ]
     updateLeaderBoard();
     
     });
