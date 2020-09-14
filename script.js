@@ -13,9 +13,11 @@ const howToPlay = document.querySelector(".instructions h2");
 const instructions = document.querySelectorAll(".instructions p")
 const speedBar = document.querySelector(".speedBar");
 const userSpeed = document.querySelector("#userSpeed");
-const leaderBoardDisplay = document.querySelectorAll("#leaderBoardDisplay")
-// console.log(leaderBoardDisplay)
-// console.log(leaderBoardDisplay[0].childNodes[7].classList)
+const leaderBoardDisplay = document.querySelectorAll("#leaderBoardDisplay");
+const colorBlindToggle = document.querySelectorAll(".CBToggle .switch");
+
+console.log(colorBlindToggle)
+console.log(boxOne)
 
 // Global Variables
 const idList = [1, 2, 3, 4];
@@ -76,7 +78,7 @@ playButton.addEventListener("click", startGameHandler);
 resetButton.addEventListener("click", resetGameHandler);
 lostBox.addEventListener("click", resetGameHandler);
 howToPlay.addEventListener("click", instructionsHandler);
-
+colorBlindToggle[0].addEventListener("click", toggleColorBlindMode);
 // Functions
 
 function colorSelector() {
@@ -86,24 +88,76 @@ function colorSelector() {
 
 function lightUpSimon(index, lightTime, darkTime = lightTime * 2) {
     let changeColor;
-    switch(true) {
-        case index === 1:
-            changeColor = setInterval(() => {boxOne.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.one})`}, lightTime);
-            setTimeout(() => {clearInterval(changeColor); boxOne.style.backgroundImage = ""}, darkTime);
-            break;
-        case index === 2:
-            changeColor = setInterval(() => {boxTwo.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.two})`}, lightTime);
-            setTimeout(() => {clearInterval(changeColor); boxTwo.style.backgroundImage = ""}, darkTime);            
-            break;
-        case index === 3:
-            changeColor = setInterval(() => {boxThree.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.three})`}, lightTime);
-            setTimeout(() => {clearInterval(changeColor); boxThree.style.backgroundImage = ""}, darkTime);
-            break;
-        case index === 4:
-            changeColor = setInterval(() => {boxFour.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.four})`}, lightTime);
-            setTimeout(() => {clearInterval(changeColor); boxFour.style.backgroundImage = ""}, darkTime);
-            break;
-
+    if(colorBlindToggle[0].children[0].checked) {
+        switch(true) {
+            case index === 1:
+                changeColor = setInterval(() => {
+                    boxOne.style.background = "#FEFBEB";
+                    boxOne.style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 20px, #1C1E21 20px, #1C1E21 40px)"
+                }, lightTime);
+                setTimeout(() => {clearInterval(changeColor); 
+                    boxOne.style.background = "#FAE675";
+                    boxOne.style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 20px, #1C1E21 20px, #1C1E21 40px)"
+                }, darkTime);
+                break;
+            case index === 2:
+                changeColor = setInterval(() => {
+                    boxTwo.style.background = "#F0F5FA";
+                    boxTwo.style.backgroundImage = "radial-gradient(#1C1E21 20%, transparent 20%),radial-gradient(#1C1E21 20%, transparent 20%)";
+                    boxTwo.style.backgroundPosition= "0 0, 25px 25px";
+                    boxTwo.style.backgroundSize = "50px 50px";
+                }, lightTime);
+                setTimeout(() => {clearInterval(changeColor); 
+                    boxTwo.style.background = "#1482BC";
+                    boxTwo.style.backgroundImage = "radial-gradient(#1C1E21 20%, transparent 20%),radial-gradient(#1C1E21 20%, transparent 20%)";
+                    boxTwo.style.backgroundPosition= "0 0, 25px 25px";
+                    boxTwo.style.backgroundSize = "50px 50px";
+                }, darkTime);            
+                break;
+            case index === 3:
+                changeColor = setInterval(() => {
+                    boxThree.style.background = "#FCEDEE";
+                    boxThree.style.backgroundImage = "linear-gradient(45deg, #1C1E21 25%, transparent 25%, transparent 75%, #1C1E21 75%, #1C1E21), linear-gradient(45deg, #1C1E21 25%, transparent 25%, transparent 75%, #1C1E21 75%, #1C1E21)";
+                    boxThree.style.backgroundPosition= "0 0, 25px 25px";
+                    boxThree.style.backgroundSize = "50px 50px";  
+                }, lightTime);          
+                setTimeout(() => {clearInterval(changeColor); 
+                    boxThree.style.background = "#E45356";
+                    boxThree.style.backgroundImage = "linear-gradient(45deg, #1C1E21 25%, transparent 25%, transparent 75%, #1C1E21 75%, #1C1E21), linear-gradient(45deg, #1C1E21 25%, transparent 25%, transparent 75%, #1C1E21 75%, #1C1E21)";
+                    boxThree.style.backgroundPosition= "0 0, 25px 25px";
+                    boxThree.style.backgroundSize = "50px 50px";
+                }, darkTime);
+                break;
+            case index === 4:
+                changeColor = setInterval(() => {
+                    boxFour.style.background = "#F4F8F2";
+                    boxFour.style.backgroundImage = "repeating-linear-gradient(0deg, transparent, transparent 30px, #1C1E21 30px, #1C1E21 45px)"}, lightTime);                
+                setTimeout(() => {clearInterval(changeColor); 
+                    boxFour.style.background = "#7DA75E"
+                    boxFour.style.backgroundImage = "repeating-linear-gradient(0deg, transparent, transparent 30px, #1C1E21 30px, #1C1E21 45px)"
+                }, darkTime);
+                break;
+        }
+    }  
+    else {
+        switch(true) {
+            case index === 1:
+                changeColor = setInterval(() => {boxOne.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.one})`}, lightTime);
+                setTimeout(() => {clearInterval(changeColor); boxOne.style.backgroundImage = ""}, darkTime);
+                break;
+            case index === 2:
+                changeColor = setInterval(() => {boxTwo.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.two})`}, lightTime);
+                setTimeout(() => {clearInterval(changeColor); boxTwo.style.backgroundImage = ""}, darkTime);            
+                break;
+            case index === 3:
+                changeColor = setInterval(() => {boxThree.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.three})`}, lightTime);
+                setTimeout(() => {clearInterval(changeColor); boxThree.style.backgroundImage = ""}, darkTime);
+                break;
+            case index === 4:
+                changeColor = setInterval(() => {boxFour.style.backgroundImage = `radial-gradient(white .1%, ${lightColors.four})`}, lightTime);
+                setTimeout(() => {clearInterval(changeColor); boxFour.style.backgroundImage = ""}, darkTime);
+                break;
+            }
     }
 }
 
@@ -361,5 +415,18 @@ function updateLeaderBoard() {
     }
 }
 
+function toggleColorBlindMode() {
+    if(colorBlindToggle[0].children[0].checked) {
+        boxOne.classList.add("colorBlindMode1")       
+        boxTwo.classList.add("colorBlindMode2");
+        boxThree.classList.add("colorBlindMode3");
+        boxFour.classList.add("colorBlindMode4");
+    } else {
+        boxOne.classList.remove("colorBlindMode");
+        boxTwo.classList.remove("colorBlindMode");
+        boxThree.classList.remove("colorBlindMode");
+        boxFour.classList.remove("colorBlindMode");
+    }
+}
 // console.log(`idPresented = ${idPresented}`)
 

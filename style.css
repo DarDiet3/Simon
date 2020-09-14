@@ -122,12 +122,30 @@ a:hover {
     
 }
 
+.colorBlindMode1 {
+    background-image:
+    repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        #1C1E21 20px,
+        #1C1E21 40px
+    )    
+}
+
 #two {
     grid-row: 1;
     grid-column: 2;
     background-color: #4182bc;
     border-top: 8px solid #1C1E21;
     border-right: 8px solid #1C1E21;
+}
+
+.colorBlindMode2 {
+    background-image: radial-gradient(#1C1E21 20%, transparent 20%),
+      radial-gradient(#1C1E21 20%, transparent 20%);  
+    background-position: 0 0, 25px 25px;
+    background-size: 50px 50px;
 }
 
 #three {
@@ -138,12 +156,22 @@ a:hover {
     border-left: 8px solid #1C1E21;
 }
 
+.colorBlindMode3 {
+    background-image: linear-gradient(45deg, #1C1E21 25%, transparent 25%, transparent 75%, #1C1E21 75%, #1C1E21), linear-gradient(45deg, #1C1E21 25%, transparent 25%, transparent 75%, #1C1E21 75%, #1C1E21);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+}
+
 #four {
     grid-row: 2;
     grid-column: 2;
     background-color: #7da75e;
     border-bottom: 8px solid #1C1E21;
     border-right: 8px solid #1C1E21;
+}
+
+.colorBlindMode4 {
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 30px, #1C1E21 30px, #1C1E21 45px);
 }
 
 button {
@@ -326,6 +354,64 @@ h3 {
 .clearfix {
     clear: both;
 }
+
+.CBToggle {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 36px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #b5b6ba;
+    transition: .5s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background: white;
+    transition: .5s;
+}
+
+input:checked + .slider {
+    background: #A9C596;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.slider.round {
+    border-radius: 36px;
+}
+
 
 
 @media (max-width: 1000px) {
