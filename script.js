@@ -39,26 +39,25 @@ let speedDisplay;
 // Local Storage Variables
 
 let currentHighScore = localStorage.getItem("highScore");
-
-try {
-    let topScores = JSON.parse(localStorage.getItem("topScores"));
-    return topScores;
-} catch(err) {
-    let topScores = [
+let topScores;
+if(localStorage.getItem("topScores")) {
+    topScores = JSON.parse(localStorage.getItem("topScores"));
+    
+} else {
+    topScores = [
         [0,""],
         [0,""],
         [0,""],
         [0,""],
         [0,""]
     ];
-    return topScores;
-} finally {
-    let ls1 = topScores[0][0];
-    let ls2 = topScores[1][0];
-    let ls3 = topScores[2][0];
-    let ls4 = topScores[3][0];
-    let ls5 = topScores[4][0];
-}
+} 
+let ls1 = topScores[0][0];
+let ls2 = topScores[1][0];
+let ls3 = topScores[2][0];
+let ls4 = topScores[3][0];
+let ls5 = topScores[4][0];
+
 let highScore = localStorage.getItem("highScore")
 
 window.addEventListener ("load", (event) => {
