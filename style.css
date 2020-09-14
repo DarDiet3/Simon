@@ -23,7 +23,7 @@ h1 {
     font-size: 56px;
 }
 
-h2 {
+h2, h3 {
     font-family: 'Orbitron', sans-serif;
 }
 
@@ -237,6 +237,56 @@ button:hover {
     align-items: center;
     width: 80%;
     margin: 15px;
+}
+
+.controlPanel {
+    background: #757780;
+    border: 3px solid #1C1E21;
+    border-radius: 8px;
+    text-align: center;
+}
+.controlPanel h2 {
+    text-decoration: underline;
+}
+h3 {
+    font-size: 16px;
+    color: white;
+    text-align: left;
+    margin: 5px 0;
+}
+.gameSpeed {
+    width: 95%;
+    /* border: 1px red solid; */
+    margin: 0 auto;
+    text-align: center;
+    
+
+}
+.speedBar {
+    list-style: none;
+    padding: 0;
+    color: white;
+    margin: 0 auto;
+    height: 35px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.speedBar li {
+    display: flex;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0 3% 0 0;
+    font-size: small;
+    height: 35px;
+    padding: 0px 5px 0px 5px;
+
+}
+
+.speedBar li:hover {
+    background: #B5B6BA;
+    cursor: pointer;
 }
 
 
