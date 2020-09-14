@@ -213,7 +213,7 @@ button:hover {
     text-align: center;
 }
 
-#ln1, #ln2, #Ln3, #ln4, #ln5 {
+.name {
     text-align: left;
 }
 #lrank, #lname, #lscore {
@@ -221,7 +221,10 @@ button:hover {
     background: #757780;
     padding: 1% 0 1% 0;
 }
+ .lscore {
+     width: 4fr;
 
+ }
 
 #lr2, #lr4, #ln2, #ln4, #ls2, #ls4 {
     background: #B5B6BA;

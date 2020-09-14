@@ -13,6 +13,9 @@ const howToPlay = document.querySelector(".instructions h2");
 const instructions = document.querySelectorAll(".instructions p")
 const speedBar = document.querySelector(".speedBar");
 const userSpeed = document.querySelector("#userSpeed");
+const leaderBoardDisplay = document.querySelectorAll("#leaderBoardDisplay")
+// console.log(leaderBoardDisplay)
+// console.log(leaderBoardDisplay[0].childNodes[7].classList)
 
 // Global Variables
 const idList = [1, 2, 3, 4];
@@ -25,30 +28,33 @@ const lightColors = {
     four: "#7da75e"
 };
 let correctSequences = 0;
-let highScore = 0;
 let clicks = 0;
 let presentIndex = 0;
 let gameSpeed = 1000;
 let colorInterval = gameSpeed * 2.05;
 let speedDisplay;
-let ls1;
-let ls2;
-let ls3;
-let ls4;
-let ls5;
-let ln1;
-let ln2;
-let ln3;
-let ln4;
-let ln5;
-let topScores = [];
-let scoreId;
+
+
 
 // Local Storage Variables
-const currentHighScore = localStorage.getItem("highScore");
-window.onload = (event) => {
+
+let currentHighScore = localStorage.getItem("highScore");
+let topScores = JSON.parse(localStorage.getItem("topScores"));
+let ls1 = topScores[0][0];
+let ls2 = topScores[1][0];
+let ls3 = topScores[2][0];
+let ls4 = topScores[3][0];
+let ls5 = topScores[4][0];
+let highScore = localStorage.getItem("highScore")
+
+window.addEventListener ("load", (event) => {
     (highScoreDisplay.innerText = currentHighScore);
-};
+    console.log(topScores)
+    updateLeaderBoard();
+    
+    });
+    
+
 // Event Listeners
 gameBoard.addEventListener("click", userGameboardClick);
 playButton.addEventListener("click", startGameHandler);
@@ -129,7 +135,6 @@ function confirmSelection() {
         answerHolder.push(idPresented[i])
     }
     let answer = answerHolder.join("");
-    console.log(clicks)
     if(userAnswer === answer) {
         if(clicks === idPresented.length) {
             idUserSelected = [];
@@ -141,7 +146,7 @@ function confirmSelection() {
             colorPresentHandler();
         }
     } else {
-        // updateLeaderBoard(correctSequences);
+        checkLeaderBoard(correctSequences);
         if(correctSequences > highScore) {
             highScore = correctSequences;
             localStorage.setItem("highScore", highScore);
@@ -159,7 +164,7 @@ function startGameHandler() {
 
 function resetGameHandler() {
     event.preventDefault();
-    // updateLeaderBoard(correctSequences);
+    // checkLeaderBoard(correctSequences);
     if(correctSequences > highScore) {
         highScore = correctSequences;
         highScoreDisplay.innerText = highScore;
@@ -221,20 +226,125 @@ function displaySpeed(speed) {
     userSpeed.innerText = speedDisplay;
 }
 
-function updateLeaderBoard(score) {
-    
-}
+function checkLeaderBoard(score) {
 
-// Classes
-
-class topScoreEntry {
-    constructor(name, score) {
-        this.name = name;
-        this.score = score;
+    let name;
+    let newEntry;
+    switch(true) {
+        case score >= parseInt(localStorage.getItem("ls1")):
+            name = prompt("Congrats! You climbed to the top of the leader board! Please enter your name!");
+            newEntry = [score, name];
+            topScores.unshift(newEntry);
+            topScores.pop()
+            updateLeaderBoard();
+            localStorage.setItem("ls1", score);
+            localStorage.setItem("ln1", name);
+            localStorage.setItem("topScores", JSON.stringify(topScores));
+            break;
+        case score >= parseInt(localStorage.getItem("ls2")):
+            name = prompt("Congrats! You're on the leader board! Please enter your name!");
+            newEntry = [score, name];
+            topScores.splice(1, 0, newEntry)
+            console.log(topScores);
+            topScores.pop();
+            updateLeaderBoard();
+            localStorage.setItem("ls2", score);
+            localStorage.setItem("ln2", name);
+            localStorage.setItem("topScores", JSON.stringify(topScores));
+            break;
+        case score >= parseInt(localStorage.getItem("ls3")):
+            name = prompt("Congrats! You're on the leader board! Please enter your name!");
+            newEntry = [score, name];
+            topScores.splice(2, 0, newEntry)
+            console.log(topScores);
+            topScores.pop()
+            updateLeaderBoard();
+            localStorage.setItem("ls3", score);
+            localStorage.setItem("ln3", name);
+            localStorage.setItem("topScores", JSON.stringify(topScores));
+            break;
+        case score >= parseInt(localStorage.getItem("ls4")):
+            name = prompt("Congrats! You're on the leader board! Please enter your name!");
+            newEntry = [score, name];
+            topScores.splice(3, 0, newEntry)
+            console.log(topScores);
+            topScores.pop()
+            updateLeaderBoard();
+            localStorage.setItem("ls4", score);
+            localStorage.setItem("ln4", name);
+            localStorage.setItem("topScores", JSON.stringify(topScores));
+            break;
+        case score >= parseInt(localStorage.getItem("ls5")):
+            name = prompt("Congrats! You just snuck on to the leader board! Please enter your name!");
+            newEntry = [score, name];
+            topScores.splice(4, 0, newEntry)
+            console.log(topScores);
+            updateLeaderBoard();
+            localStorage.setItem("ls5", score);
+            localStorage.setItem("ln5", name);
+            localStorage.setItem("topScores", JSON.stringify(topScores));
+            break;
     }
 }
 
-let default1 = new topScoreEntry(" ", "0")
+function updateLeaderBoard() {
+    for(let i = 0; i < 36; i++) {
+        if(leaderBoardDisplay[0].childNodes[i].nodeName !== "#text"){
+            switch(true) {
+                case leaderBoardDisplay[0].childNodes[i].classList.contains("one"):
+                    switch(true) {
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("name"): 
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[0][1];
+                            break;
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("lscore"):
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[0][0];
+                            break;
+                    }
+                    break;
+                case leaderBoardDisplay[0].childNodes[i].classList.contains("two"):
+                    switch(true) {
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("name"): 
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[1][1];
+                            break;
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("lscore"):
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[1][0];
+                            break;
+                    }
+                    break;
+                case leaderBoardDisplay[0].childNodes[i].classList.contains("three"):
+                    switch(true) {
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("name"): 
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[2][1];
+                            break;
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("lscore"):
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[2][0];
+                            break;
+                    }
+                    break;
+                case leaderBoardDisplay[0].childNodes[i].classList.contains("four"):
+                    switch(true) {
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("name"): 
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[3][1];
+                            break;
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("lscore"):
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[3][0];
+                            break;
+                    }
+                    break;
+                case leaderBoardDisplay[0].childNodes[i].classList.contains("five"):
+                    switch(true) {
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("name"): 
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[4][1];
+                            break;
+                        case leaderBoardDisplay[0].childNodes[i].classList.contains("lscore"):
+                            leaderBoardDisplay[0].childNodes[i].innerText = topScores[4][0];
+                            break;
+                    }
+                    break;
+            }
+        }
+    }
+}
 
 // console.log(`idPresented = ${idPresented}`)
 
