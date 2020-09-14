@@ -429,6 +429,10 @@ function toggleColorBlindMode() {
         boxTwo.classList.remove("colorBlindMode2");
         boxThree.classList.remove("colorBlindMode3");
         boxFour.classList.remove("colorBlindMode4");
+        boxOne.style = "";
+        boxTwo.style = "";
+        boxThree.style = "";
+        boxFour.style = "";
     }
 }
 
