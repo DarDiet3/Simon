@@ -234,7 +234,9 @@ function startGameHandler() {
 
 function resetGameHandler() {
     event.preventDefault();
-    checkLeaderBoard(correctSequences);
+    if(lostBox.style.display !== "block") {
+        checkLeaderBoard(correctSequences);
+    }
     if(correctSequences > highScore) {
         highScore = correctSequences;
         highScoreDisplay.innerText = highScore;
