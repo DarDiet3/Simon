@@ -53,6 +53,7 @@ if(localStorage.getItem("topScores")) {
         [0,""],
         [0,""]
     ];
+    localStorage.setItem("topScores", JSON.stringify(topScores));
 } 
 let ls1 = topScores[0][0];
 let ls2 = topScores[1][0];
