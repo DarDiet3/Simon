@@ -39,16 +39,29 @@ let speedDisplay;
 // Local Storage Variables
 
 let currentHighScore = localStorage.getItem("highScore");
-let topScores = JSON.parse(localStorage.getItem("topScores"));
-let ls1 = topScores[0][0];
-let ls2 = topScores[1][0];
-let ls3 = topScores[2][0];
-let ls4 = topScores[3][0];
-let ls5 = topScores[4][0];
+
+try {
+    let topScores = JSON.parse(localStorage.getItem("topScores"));
+} catch(err) {
+    let topScores = [
+        [0,""],
+        [0,""],
+        [0,""],
+        [0,""],
+        [0,""]
+    ]
+} finally {
+    let ls1 = topScores[0][0];
+    let ls2 = topScores[1][0];
+    let ls3 = topScores[2][0];
+    let ls4 = topScores[3][0];
+    let ls5 = topScores[4][0];
+}
 let highScore = localStorage.getItem("highScore")
 
 window.addEventListener ("load", (event) => {
     (highScoreDisplay.innerText = currentHighScore);
+
     console.log(topScores)
     
     updateLeaderBoard();
