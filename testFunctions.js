@@ -15,9 +15,9 @@ localStorage.setItem("name","Jo")
 let name = localStorage.getItem("name")
 // console.log(name)
 
-boxCount = 1;
+// boxCount = 1;
 
-switch(boxCount) {
-    case 1:
-        console.log("one");
-}
+// switch(boxCount) {
+//     case 1:
+//         console.log("one");
+// }

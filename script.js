@@ -491,7 +491,7 @@ function extremeModeHandler() {
     if(correctSequences === switchPoint) {
         for (let i = 0; i < 4; i++) {
             let posIndex = Math.floor(Math.random() * positions.length);
-            let box = "one";
+            let box = positions[posIndex];
             switch(box) {
                 case "one":
                     boxOne.style.gridRow = row;
@@ -510,7 +510,6 @@ function extremeModeHandler() {
                     boxFour.style.gridColumn = column;
                     break;
             }
-            console.log(boxCount)
             switch(boxCount) {
                 case 1:
                     column = 2;
@@ -527,7 +526,8 @@ function extremeModeHandler() {
                     break;
             }
             boxCount++;
-            
+            positions.splice(posIndex,1);
+            console.log(positions)
         }
     }
     /** Put the functionality here */
