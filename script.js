@@ -18,7 +18,7 @@ const leaderBoardDisplay = document.querySelectorAll("#leaderBoardDisplay");
 const colorBlindToggle = document.querySelectorAll(".CBToggle .switch");
 const progressiveSpeedToggle = document.querySelectorAll(".psToggle .switch");
 const controlPanel = document.querySelector(".controlPanel h2");
-
+const extremeToggle = document.querySelectorAll(".emToggle .switch");
 
 // Global Variables
 const idList = [1, 2, 3, 4];
@@ -37,7 +37,9 @@ let gameSpeed = 1000;
 let colorInterval = gameSpeed * 2.05;
 let speedDisplay;
 let speedProgression = false;
-
+let extreme = false;
+let extremeSwitch = 4;
+let switchPoint = 4;
 
 // Local Storage Variables
 
@@ -81,6 +83,7 @@ howToPlay.addEventListener("click", instructionsHandler);
 colorBlindToggle[0].addEventListener("click", toggleColorBlindMode);
 progressiveSpeedToggle[0].addEventListener("click",toggleProgressiveSpeed);
 controlPanel.addEventListener("click", controlPanelHandler);
+extremeToggle[0].addEventListener("click", toggleExtremeMode);
 
 // Functions
 
@@ -212,13 +215,17 @@ function confirmSelection() {
         if(clicks === idPresented.length) {
             idUserSelected = [];
             clicks = 0;
+            correctSequences ++;
             if(speedProgression) {
                 if(correctSequences !== 0 && correctSequences % 5 === 0) {
                     gameSpeed -= 25;
                     colorInterval = gameSpeed * 2.05;
                 }
             }
-            correctSequences ++;
+            if(extreme) {
+                extremeModeHandler()
+            }
+            
             userScoreDisplay.innerText = correctSequences;
             colorSelector();
             presentIndex = 0;
@@ -258,7 +265,9 @@ function resetGameHandler() {
     userScoreDisplay.innerText = correctSequences;
     lostBox.style.display = "none"
     presentIndex = 0;
-    displaySpeed(selectedSpeed.value)
+    displaySpeed(selectedSpeed.value);
+    switchPoint = 4;
+    extremeSwitch = 4;
     
 }
 
@@ -466,5 +475,96 @@ function controlPanelHandler() {
                 controlSect.style.borderRadius = "0 0 8px 8px";
             }
         }
+    }
+}
+
+function toggleExtremeMode() {
+    if(extremeToggle[0].children[0].checked) {
+        extreme = true;
+    } else {
+        extreme = false;
+    }
+}
+
+function extremeModeHandler() {
+    if(correctSequences === switchPoint) {
+        let set = [3, 4, 5];
+        let index = Math.floor(Math.random() * set.legnth);
+        extremeSwitch = set[index];
+        let positions = ["one", "two", "three", "four"]
+        let boxCount = 1;
+        let row = 1;
+        let column = 1;
+    
+        for (let i = 0; i < 4; i++) {
+            let posIndex = Math.floor(Math.random() * positions.length);
+            let box = positions[posIndex];
+            switch(box) {
+                case "one":
+                    boxOne.style.gridRow = row;
+                    boxOne.style.gridColumn = column;
+                    boxOne.style.borderTop = "2px solid #1C1E21";
+                    boxOne.style.borderLeft = "2px solid #1C1E21";
+                    boxStyleUpdate(boxOne, row, column);
+                    break;
+                case "two":
+                    boxTwo.style.gridRow = row;
+                    boxTwo.style.gridColumn = column;
+                    boxTwo.style.borderTop = "2px solid #1C1E21";
+                    boxTwo.style.borderRight = "2px solid #1C1E21";
+                    boxStyleUpdate(boxTwo, row, column);
+                    break;
+                case "three":
+                    boxThree.style.gridRow = row;
+                    boxThree.style.gridColumn = column;
+                    boxThree.style.borderBottom = "2px solid #1C1E21";
+                    boxThree.style.borderLeft = "2px solid #1C1E21";
+                    boxStyleUpdate(boxThree, row, column);
+                    break;
+                case "four":
+                    boxFour.style.gridRow = row;
+                    boxFour.style.gridColumn = column;
+                    boxFour.style.borderBottom = "2px solid #1C1E21";
+                    boxFour.style.borderRight = "2px solid #1C1E21";
+                    boxStyleUpdate(boxFour, row, column);
+                    break;
+            }
+            switch(boxCount) {
+                case 1:
+                    column = 2;
+                    break;
+                case 2:
+                    row = 2;
+                    column = 1;
+                    break;
+                case 3: 
+                    column = 2;
+                    break;
+            }
+            boxCount++;
+            positions.splice(posIndex,1);
+        }
+        switchPoint += extremeSwitch;
+    }
+
+
+}
+
+function boxStyleUpdate(box, row, column) {
+    switch(row) {
+        case 1:
+            box.style.borderTop = "8px solid #1C1E21";
+            break;
+        case 2:
+            box.style.borderBottom = "8px solid #1C1E21";
+            break;
+    }
+    switch(column) {
+        case 1:
+            box.style.borderLeft = "8px solid #1C1E21";
+            break;
+        case 2:
+            box.style.borderRight = "8px solid #1C1E21";
+            break;
     }
 }
