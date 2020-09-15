@@ -496,29 +496,29 @@ function extremeModeHandler() {
                 case "one":
                     boxOne.style.gridRow = row;
                     boxOne.style.gridColumn = column;
-                    boxOne.style.borderTop = "0px";
-                    boxOne.style.borderLeft = "0px";
+                    boxOne.style.borderTop = "2px solid #1C1E21";
+                    boxOne.style.borderLeft = "2px solid #1C1E21";
                     boxStyleUpdate(boxOne, row, column);
                     break;
                 case "two":
                     boxTwo.style.gridRow = row;
                     boxTwo.style.gridColumn = column;
-                    boxTwo.style.borderTop = "0px";
-                    boxTwo.style.borderRight = "0px";
+                    boxTwo.style.borderTop = "2px solid #1C1E21";
+                    boxTwo.style.borderRight = "2px solid #1C1E21";
                     boxStyleUpdate(boxTwo, row, column);
                     break;
                 case "three":
                     boxThree.style.gridRow = row;
                     boxThree.style.gridColumn = column;
-                    boxThree.style.borderBottom = "0px";
-                    boxThree.style.borderLeft = "0px";
+                    boxThree.style.borderBottom = "2px solid #1C1E21";
+                    boxThree.style.borderLeft = "2px solid #1C1E21";
                     boxStyleUpdate(boxThree, row, column);
                     break;
                 case "four":
                     boxFour.style.gridRow = row;
                     boxFour.style.gridColumn = column;
-                    boxFour.style.borderBottom = "0px";
-                    boxFour.style.borderRight = "0px";
+                    boxFour.style.borderBottom = "2px solid #1C1E21";
+                    boxFour.style.borderRight = "2px solid #1C1E21";
                     boxStyleUpdate(boxFour, row, column);
                     break;
             }
