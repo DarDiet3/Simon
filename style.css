@@ -360,11 +360,11 @@ h3 {
     clear: both;
 }
 
-.colorBlind, .progressiveSpeed {
+.colorBlind, .progressiveSpeed, .extremeMode {
     margin: 0 auto 10px auto;
 }
 
-.colorBlind h3 {
+.colorBlind h3, .extremeMode h3 {
     margin: 5px;
 }
 
@@ -373,7 +373,7 @@ h3 {
     font-size: 15px;
 }
 
-.CBToggle, .psToggle {
+.CBToggle, .psToggle, .emToggle {
     display: flex;
     justify-content: space-around;
     color: white;
