@@ -17,8 +17,8 @@ const userSpeed = document.querySelector("#userSpeed");
 const leaderBoardDisplay = document.querySelectorAll("#leaderBoardDisplay");
 const colorBlindToggle = document.querySelectorAll(".CBToggle .switch");
 const progressiveSpeedToggle = document.querySelectorAll(".psToggle .switch");
+const controlPanel = document.querySelector(".controlPanel h2");
 
-console.log(selectedSpeed)
 
 // Global Variables
 const idList = [1, 2, 3, 4];
@@ -66,8 +66,6 @@ let highScore = localStorage.getItem("highScore")
 
 window.addEventListener ("load", (event) => {
     (highScoreDisplay.innerText = currentHighScore);
-
-    console.log(topScores)
     
     updateLeaderBoard();
     
@@ -82,6 +80,7 @@ lostBox.addEventListener("click", resetGameHandler);
 howToPlay.addEventListener("click", instructionsHandler);
 colorBlindToggle[0].addEventListener("click", toggleColorBlindMode);
 progressiveSpeedToggle[0].addEventListener("click",toggleProgressiveSpeed);
+controlPanel.addEventListener("click", controlPanelHandler);
 
 // Functions
 
@@ -455,3 +454,49 @@ function toggleProgressiveSpeed() {
     }
 }
 
+function controlPanelHandler() {
+    const windowWidth = window.innerWidth;
+    if(windowWidth <= 1000) {
+        let newWid = controlPanel.clientWidth;
+        const controlSect = document.querySelector(".controlPanel section");
+        let gameSpeed = document.querySelector(".gameSpeed");
+        let colorBlind = document.querySelector(".colorBlind");
+        let progressiveSpeed = document.querySelector(".progressiveSpeed");
+        let controls = [gameSpeed, colorBlind, progressiveSpeed];
+        for(let i = 0; i < controls.length; i++) {
+            if(controls[i].style.display === "block") {
+                controls[i].style.display = "";
+                controlSect.style.border = "";
+                controlSect.style.background = "";
+            } else {
+                controls[i].style.display = "block";
+                controlSect.style.width = `${newWid}px`;
+                controlSect.style.background = "#757780";
+                controlSect.style.transform = "translate(-3px, -3px)";
+                controlSect.style.border = "3px solid #1C1E21";
+                controlSect.style.borderRadius = "0 0 8px 8px";
+            }
+        }
+    }
+
+
+
+
+//     let newWidth = howToPlay.clientWidth;
+//     const instSection = document.querySelector(".instructions section");
+//     for(let i = 0; i < instructions.length; i++) {
+//         if(instructions[i].style.display === "block") {
+//             instructions[i].style.display = "";
+//             instSection.style.border = "";
+//             instSection.style.borderRadius = "";
+            
+//         } else {
+//             instructions[i].style.display = "block";
+//             instSection.style.width = `${newWidth}px`;
+//             instSection.style.border = "3px solid #1C1E21";
+//             instSection.style.borderRadius = "0 0 8px 8px";
+//             instSection.style.transform = "translate(-3px, -3px)";
+//         }
+//     }
+// }
+}

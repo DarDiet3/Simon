@@ -40,6 +40,7 @@ h2.subtitle {
     display: flex;
     padding: 10px;
     height: 75vh;
+    margin-bottom: 15px;
 }
 
 .sideBar {
@@ -93,6 +94,7 @@ footer {
     padding: 4px 10px;
     text-align: center;
     color: white;
+    height: 60px;
 }
 
 a {
@@ -439,10 +441,11 @@ input:checked + .slider:before {
         justify-content: flex-start;
     }
     .sideBar {
+        display: flex;
         width: 100vw;
         align-self: flex-start;
-        border: 2px solid black;
-        margin-bottom: -5%; 
+        border: 2px solid black; 
+        justify-content: space-around;
     }
     .boardArea {
         width: 72%;
@@ -457,7 +460,37 @@ input:checked + .slider:before {
     .instructions section {
         width: 25%;
     }
+
+    .controlPanel {
+        width: 70%;
+    }
+
+    .controlPanel section {
+        position: absolute;
+        display: block;
+    }
+    .gameSpeed, .colorBlind, .progressiveSpeed {
+        display: none;
+        max-height: 100px;
+    }
+
+    .controlPanel h2 {
+        margin: 0;
+        padding: 10px;
+        border-radius: 5px;
+
+    }
+    .controlPanel h2:hover {
+        background: #B5B6BA;
+    }
+    .psToggle, .CBToggle {
+        display: flex;
+        width: 50%;
+        margin-left: 25%;
+        
+    }
 }
+
 /* 
 font-family: 'Montserrat', sans-serif;
 font-family: 'Orbitron', sans-serif; */
