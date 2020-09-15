@@ -496,18 +496,22 @@ function extremeModeHandler() {
                 case "one":
                     boxOne.style.gridRow = row;
                     boxOne.style.gridColumn = column;
+                    boxOne.style.border = "";
                     break;
                 case "two":
                     boxTwo.style.gridRow = row;
                     boxTwo.style.gridColumn = column;
+                    boxTwo.style.border = "";
                     break;
                 case "three":
                     boxThree.style.gridRow = row;
                     boxThree.style.gridColumn = column;
+                    boxThree.style.border = "";
                     break;
                 case "four":
                     boxFour.style.gridRow = row;
                     boxFour.style.gridColumn = column;
+                    boxFour.style.border = "";
                     break;
             }
             switch(boxCount) {
@@ -530,10 +534,27 @@ function extremeModeHandler() {
             console.log(positions)
         }
     }
-    /** Put the functionality here */
-
     switchPoint += extremeSwitch;
 
+}
+
+function boxStyleUpdate(box) {
+    switch(row) {
+        case 1:
+            box.style.borderTop = "8px solid #1C1E21";
+            break;
+        case 2:
+            box.style.borderBottom = "8px solid #1C1E21";
+            break;
+    }
+    switch(column) {
+        case 1:
+            box.style.borderLeft = "8px solid #1C1E21";
+            break;
+        case 2:
+            box.style.borderRight = "8px solid #1C1E21";
+            break;
+    }
 }
 
 extremeModeHandler()
