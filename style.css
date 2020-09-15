@@ -460,6 +460,7 @@ input:checked + .slider:before {
     }
     .instructions {
         width: 25%;
+        margin-top: 0;
     }
 
     .instructions section {
@@ -468,6 +469,7 @@ input:checked + .slider:before {
 
     .controlPanel {
         width: 70%;
+        margin-top: 0;
     }
 
     .controlPanel section {
@@ -493,6 +495,9 @@ input:checked + .slider:before {
         width: 50%;
         margin-left: 25%;
         
+    }
+    .sideBar {
+        flex-direction: row;
     }
 }
 
