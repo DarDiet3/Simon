@@ -488,7 +488,7 @@ function toggleExtremeMode() {
 
 function extremeModeHandler() {
     if(correctSequences === switchPoint) {
-        let set = [3, 4, 5, 6, 7];
+        let set = [3, 4, 5];
         let index = Math.floor(Math.random() * set.legnth);
         extremeSwitch = set[index];
         let positions = ["one", "two", "three", "four"]
