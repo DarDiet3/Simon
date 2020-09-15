@@ -469,6 +469,7 @@ function controlPanelHandler() {
                 controlSect.style.border = "";
                 controlSect.style.background = "";
                 controlSect.style.transform = "";
+                controlSect.style.width = "";
             } else {
                 controls[i].style.display = "block";
                 controlSect.style.width = `${newWid}px`;
