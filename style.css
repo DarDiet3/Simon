@@ -316,6 +316,10 @@ button:hover {
     margin: 15px;
 }
 
+.bold {
+    font-weight: 900;
+}
+
 .controlPanel {
     background: #757780;
     border: 3px solid #1C1E21;
