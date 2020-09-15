@@ -11,6 +11,7 @@ Simon: Will you follow me? is a spin off of the classic game, Simon. There will 
 
 ## Example
 ![Complete Page, colorblind mode](https://imgur.com/p2P0rFN.png)
+
 [Game Link](https://dardiet3.github.io/Simon/)
 
 ## Current Features
