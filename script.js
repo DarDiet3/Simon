@@ -39,7 +39,7 @@ let speedDisplay;
 let speedProgression = false;
 let extreme = false;
 let extremeSwitch = 4;
-let switchPoint = 4;
+let switchPoint = 0;
 
 // Local Storage Variables
 
@@ -496,7 +496,25 @@ function extremeModeHandler() {
                 case "one":
                     boxOne.style.gridRow = row;
                     boxOne.style.gridColumn = column;
-                    return;
+                    break;
+                case "two":
+                    boxTwo.style.gridRow = row;
+                    boxTwo.style.gridColumn = column;
+                    break;
+                case "three":
+                    boxThree.style.gridRow = row;
+                    boxThree.style.gridColumn = column;
+                    break;
+                case "four":
+                    boxFour.style.gridRow = row;
+                    boxFour.style.gridColumn = column;
+                    break;
+            }
+            console.log(boxCount)
+            switch(boxCount) {
+                case 1:
+                    console.log("one");
+                    break;
             }
         }
     }
