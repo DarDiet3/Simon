@@ -496,25 +496,29 @@ function extremeModeHandler() {
                 case "one":
                     boxOne.style.gridRow = row;
                     boxOne.style.gridColumn = column;
-                    boxOne.style.border = "";
+                    boxOne.style.borderTop = "0px";
+                    boxOne.style.borderLeft = "0px";
                     boxStyleUpdate(boxOne, row, column);
                     break;
                 case "two":
                     boxTwo.style.gridRow = row;
                     boxTwo.style.gridColumn = column;
-                    boxTwo.style.border = "";
+                    boxTwo.style.borderTop = "0px";
+                    boxTwo.style.borderRight = "0px";
                     boxStyleUpdate(boxTwo, row, column);
                     break;
                 case "three":
                     boxThree.style.gridRow = row;
                     boxThree.style.gridColumn = column;
-                    boxThree.style.border = "";
+                    boxThree.style.borderBottom = "0px";
+                    boxThree.style.borderLeft = "0px";
                     boxStyleUpdate(boxThree, row, column);
                     break;
                 case "four":
                     boxFour.style.gridRow = row;
                     boxFour.style.gridColumn = column;
-                    boxFour.style.border = "";
+                    boxFour.style.borderBottom = "0px";
+                    boxFour.style.borderRight = "0px";
                     boxStyleUpdate(boxFour, row, column);
                     break;
             }
