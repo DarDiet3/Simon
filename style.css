@@ -327,7 +327,6 @@ h3 {
 }
 .gameSpeed {
     width: 95%;
-    /* border: 1px red solid; */
     margin: 0 auto 10px auto;
     text-align: center;
     
@@ -355,7 +354,20 @@ h3 {
     clear: both;
 }
 
-.CBToggle {
+.colorBlind, .progressiveSpeed {
+    margin: 0 auto 10px auto;
+}
+
+.colorBlind h3 {
+    margin: 5px;
+}
+
+.progressiveSpeed h3 {
+    margin: 5px;
+    font-size: 15px;
+}
+
+.CBToggle, .psToggle {
     display: flex;
     justify-content: space-around;
     color: white;

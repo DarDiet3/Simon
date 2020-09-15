@@ -12,12 +12,13 @@ const resetButton = document.querySelector("#resetGame");
 const howToPlay = document.querySelector(".instructions h2");
 const instructions = document.querySelectorAll(".instructions p")
 const speedBar = document.querySelector(".speedBar");
+const selectedSpeed = document.querySelector("#speedSelect")
 const userSpeed = document.querySelector("#userSpeed");
 const leaderBoardDisplay = document.querySelectorAll("#leaderBoardDisplay");
 const colorBlindToggle = document.querySelectorAll(".CBToggle .switch");
+const progressiveSpeedToggle = document.querySelectorAll(".psToggle .switch");
 
-console.log(colorBlindToggle)
-console.log(boxOne)
+console.log(selectedSpeed)
 
 // Global Variables
 const idList = [1, 2, 3, 4];
@@ -35,7 +36,7 @@ let presentIndex = 0;
 let gameSpeed = 1000;
 let colorInterval = gameSpeed * 2.05;
 let speedDisplay;
-
+let speedProgression = false;
 
 
 // Local Storage Variables
@@ -80,6 +81,8 @@ resetButton.addEventListener("click", resetGameHandler);
 lostBox.addEventListener("click", resetGameHandler);
 howToPlay.addEventListener("click", instructionsHandler);
 colorBlindToggle[0].addEventListener("click", toggleColorBlindMode);
+progressiveSpeedToggle[0].addEventListener("click",toggleProgressiveSpeed);
+
 // Functions
 
 function colorSelector() {
@@ -164,13 +167,14 @@ function lightUpSimon(index, lightTime, darkTime = lightTime * 2) {
 
 
 function colorPresentHandler(){
-        setTimeout(() => {
-            presentIndex++;
-            lightUpSimon(idPresented[presentIndex-1],gameSpeed);
-            if(presentIndex <= idPresented.length) {
-                colorPresentHandler();
-            }
-        },colorInterval);
+    
+    setTimeout(() => {
+        presentIndex++;
+        lightUpSimon(idPresented[presentIndex-1],gameSpeed);
+        if(presentIndex <= idPresented.length) {
+            colorPresentHandler();
+        }
+    },colorInterval);
     //  Stack overflow solution to similar issue: https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop;
 }
 
@@ -209,6 +213,12 @@ function confirmSelection() {
         if(clicks === idPresented.length) {
             idUserSelected = [];
             clicks = 0;
+            if(speedProgression) {
+                if(correctSequences !== 0 && correctSequences % 5 === 0) {
+                    gameSpeed -= 25;
+                    colorInterval = gameSpeed * 2.05;
+                }
+            }
             correctSequences ++;
             userScoreDisplay.innerText = correctSequences;
             colorSelector();
@@ -249,6 +259,7 @@ function resetGameHandler() {
     userScoreDisplay.innerText = correctSequences;
     lostBox.style.display = "none"
     presentIndex = 0;
+    displaySpeed(selectedSpeed.value)
     
 }
 
@@ -436,4 +447,11 @@ function toggleColorBlindMode() {
     }
 }
 
+function toggleProgressiveSpeed() {
+    if(progressiveSpeedToggle[0].children[0].checked) {
+        speedProgression = true;
+    } else {
+        speedProgression = false;
+    }
+}
 
