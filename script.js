@@ -319,8 +319,6 @@ function checkLeaderBoard(score) {
             topScores.unshift(newEntry);
             topScores.pop()
             updateLeaderBoard();
-            // localStorage.setItem("ls1", score);
-            // localStorage.setItem("ln1", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
         case score >= topScores[1][0]:
@@ -330,8 +328,6 @@ function checkLeaderBoard(score) {
             console.log(topScores);
             topScores.pop();
             updateLeaderBoard();
-            // localStorage.setItem("ls2", score);
-            // localStorage.setItem("ln2", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
         case score >= topScores[2][0]:
@@ -341,8 +337,6 @@ function checkLeaderBoard(score) {
             console.log(topScores);
             topScores.pop()
             updateLeaderBoard();
-            // localStorage.setItem("ls3", score);
-            // localStorage.setItem("ln3", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
         case score >= topScores[3][0]:
@@ -352,8 +346,6 @@ function checkLeaderBoard(score) {
             console.log(topScores);
             topScores.pop()
             updateLeaderBoard();
-            // localStorage.setItem("ls4", score);
-            // localStorage.setItem("ln4", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
         case score >= topScores[4][0]:
@@ -362,8 +354,6 @@ function checkLeaderBoard(score) {
             topScores.splice(4, 0, newEntry)
             console.log(topScores);
             updateLeaderBoard();
-            // localStorage.setItem("ls5", score);
-            // localStorage.setItem("ln5", name);
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
     }
@@ -481,25 +471,4 @@ function controlPanelHandler() {
             }
         }
     }
-
-
-
-
-//     let newWidth = howToPlay.clientWidth;
-//     const instSection = document.querySelector(".instructions section");
-//     for(let i = 0; i < instructions.length; i++) {
-//         if(instructions[i].style.display === "block") {
-//             instructions[i].style.display = "";
-//             instSection.style.border = "";
-//             instSection.style.borderRadius = "";
-            
-//         } else {
-//             instructions[i].style.display = "block";
-//             instSection.style.width = `${newWidth}px`;
-//             instSection.style.border = "3px solid #1C1E21";
-//             instSection.style.borderRadius = "0 0 8px 8px";
-//             instSection.style.transform = "translate(-3px, -3px)";
-//         }
-//     }
-// }
 }
