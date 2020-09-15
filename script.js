@@ -39,7 +39,7 @@ let speedDisplay;
 let speedProgression = false;
 let extreme = false;
 let extremeSwitch = 4;
-let switchPoint = 0;
+let switchPoint = 4;
 
 // Local Storage Variables
 
@@ -215,13 +215,18 @@ function confirmSelection() {
         if(clicks === idPresented.length) {
             idUserSelected = [];
             clicks = 0;
+            correctSequences ++;
+            console.log(correctSequences)
             if(speedProgression) {
                 if(correctSequences !== 0 && correctSequences % 5 === 0) {
                     gameSpeed -= 25;
                     colorInterval = gameSpeed * 2.05;
                 }
             }
-            correctSequences ++;
+            if(extreme) {
+                extremeModeHandler()
+            }
+            
             userScoreDisplay.innerText = correctSequences;
             colorSelector();
             presentIndex = 0;
@@ -261,7 +266,9 @@ function resetGameHandler() {
     userScoreDisplay.innerText = correctSequences;
     lostBox.style.display = "none"
     presentIndex = 0;
-    displaySpeed(selectedSpeed.value)
+    displaySpeed(selectedSpeed.value);
+    switchPoint = 4;
+    extremeSwitch = 4;
     
 }
 
@@ -481,14 +488,15 @@ function toggleExtremeMode() {
 }
 
 function extremeModeHandler() {
-    let set = [3, 4, 5, 6, 7];
-    let index = Math.floor(Math.random() * set.legnth);
-    extremeSwitch = set[index];
-    let positions = ["one", "two", "three", "four"]
-    let boxCount = 1;
-    let row = 1;
-    let column = 1;
     if(correctSequences === switchPoint) {
+        let set = [3, 4, 5, 6, 7];
+        let index = Math.floor(Math.random() * set.legnth);
+        extremeSwitch = set[index];
+        let positions = ["one", "two", "three", "four"]
+        let boxCount = 1;
+        let row = 1;
+        let column = 1;
+    
         for (let i = 0; i < 4; i++) {
             let posIndex = Math.floor(Math.random() * positions.length);
             let box = positions[posIndex];
@@ -541,8 +549,9 @@ function extremeModeHandler() {
             positions.splice(posIndex,1);
             console.log(positions)
         }
+        switchPoint += extremeSwitch;
     }
-    switchPoint += extremeSwitch;
+
 
 }
 
@@ -564,5 +573,3 @@ function boxStyleUpdate(box, row, column) {
             break;
     }
 }
-
-extremeModeHandler()
