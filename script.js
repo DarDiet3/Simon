@@ -457,7 +457,8 @@ function controlPanelHandler() {
         let gameSpeed = document.querySelector(".gameSpeed");
         let colorBlind = document.querySelector(".colorBlind");
         let progressiveSpeed = document.querySelector(".progressiveSpeed");
-        let controls = [gameSpeed, colorBlind, progressiveSpeed];
+        let extremeMode = document.querySelector(".extremeMode");
+        let controls = [gameSpeed, colorBlind, progressiveSpeed, extremeMode];
         for(let i = 0; i < controls.length; i++) {
             if(controls[i].style.display === "block") {
                 controls[i].style.display = "";
