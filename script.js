@@ -513,9 +513,21 @@ function extremeModeHandler() {
             console.log(boxCount)
             switch(boxCount) {
                 case 1:
-                    console.log("one");
+                    column = 2;
+                    console.log([row, column]);
+                    break;
+                case 2:
+                    row = 2;
+                    column = 1;
+                    console.log([row, column]);
+                    break;
+                case 3: 
+                    column = 2;
+                    console.log([row, column]);
                     break;
             }
+            boxCount++;
+            
         }
     }
     /** Put the functionality here */
