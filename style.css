@@ -292,7 +292,7 @@ button:hover {
     position: absolute;
     display: block;
     background: white;
-    
+    z-index: 1;
 }
 
 .instructions p {
