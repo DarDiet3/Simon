@@ -437,6 +437,10 @@ input:checked + .slider:before {
     border-radius: 36px;
 }
 
+.clear {
+    clear: both;
+}
+
 @media (min-width: 1320px) {
     .instructions {
         margin-top: -52px;
@@ -515,5 +519,12 @@ input:checked + .slider:before {
     }
     .sideBar {
         flex-direction: row;
+    }
+}
+
+@media (max-width: 792px) {
+    .clear {
+        clear: both;
+        height: 6vh;
     }
 }
