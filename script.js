@@ -18,7 +18,7 @@ const leaderBoardDisplay = document.querySelectorAll("#leaderBoardDisplay");
 const colorBlindToggle = document.querySelectorAll(".CBToggle .switch");
 const progressiveSpeedToggle = document.querySelectorAll(".psToggle .switch");
 const controlPanel = document.querySelector(".controlPanel h2");
-
+const extremeToggle = document.querySelectorAll(".emToggle .switch");
 
 // Global Variables
 const idList = [1, 2, 3, 4];
@@ -37,7 +37,9 @@ let gameSpeed = 1000;
 let colorInterval = gameSpeed * 2.05;
 let speedDisplay;
 let speedProgression = false;
-
+let extreme = false;
+let extremeSwitch = 4;
+let switchPoint = 4;
 
 // Local Storage Variables
 
@@ -81,6 +83,7 @@ howToPlay.addEventListener("click", instructionsHandler);
 colorBlindToggle[0].addEventListener("click", toggleColorBlindMode);
 progressiveSpeedToggle[0].addEventListener("click",toggleProgressiveSpeed);
 controlPanel.addEventListener("click", controlPanelHandler);
+extremeToggle[0].addEventListener("click", toggleExtremeMode);
 
 // Functions
 
@@ -468,3 +471,39 @@ function controlPanelHandler() {
         }
     }
 }
+
+function toggleExtremeMode() {
+    if(extremeToggle[0].children[0].checked) {
+        extreme = true;
+    } else {
+        extreme = false;
+    }
+}
+
+function extremeModeHandler() {
+    let set = [3, 4, 5, 6, 7];
+    let index = Math.floor(Math.random() * set.legnth);
+    extremeSwitch = set[index];
+    let positions = ["one", "two", "three", "four"]
+    let boxCount = 1;
+    let row = 1;
+    let column = 1;
+    if(correctSequences === switchPoint) {
+        for (let i = 0; i < 4; i++) {
+            let posIndex = Math.floor(Math.random() * positions.length);
+            let box = "one";
+            switch(box) {
+                case "one":
+                    boxOne.style.gridRow = row;
+                    boxOne.style.gridColumn = column;
+                    return;
+            }
+        }
+    }
+    /** Put the functionality here */
+
+    switchPoint += extremeSwitch;
+
+}
+
+extremeModeHandler()
