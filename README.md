@@ -32,9 +32,6 @@ Simon: Will you follow me? is a spin off of the classic game, Simon. There will 
 
 ## Getting Started
 To play this game, simply follow the game link above. 
-        
-## Problems Still Unsolved
-- When instruction menu drops down, the slider buttons on the control pannel show through the menu.
 
 ## Contribute
 - **Source Code:** https://github.com/DarDiet3/Simon
