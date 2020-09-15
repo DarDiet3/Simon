@@ -1,55 +1,42 @@
-# Project 1 Game
-
-## Title: 
-### Simon: Will you follow me?
+# Project 1 Game :
+## Simon: Will you follow me?
 
 ## Description: 
-Simon: Will you follow me? is a spin off of the classic game Simon. There will be a game board composed of four, uniquely colored squares. The squares will flash in a sequence, with an additional color added each turn. The sequence will be random and unique to each game. The player will repeat the sequence after each presentation, continuing until they make a mistake. The players score and high score will be displayed and an instruction guide will be offered. 
+Simon: Will you follow me? is a spin off of the classic game, Simon. There will be a game board composed of four, uniquely colored squares. The squares will flash in a sequence, with an additional color added each turn. The sequence will be random and unique to each game. The player will repeat the sequence after each presentation, continuing until they make a mistake. The players score and high score will be displayed and an instruction guide will be offered. 
 
 ## Wireframes:
 
 ![wireframe, full screen](https://i.imgur.com/qUN0n75.jpg)
 ![wireframe, small screen and mobile](https://i.imgur.com/ztXa9no.jpg)
 
-## Requirements:
-### MVP
-* Features:
-    - Four color squares
-    - Instructions tab
-    - Score Tab
-    - Title
-* Functions: 
-    - Random, repeated sequence of colors flashing
-    - Add on one color to sequence after each successful playback
-    - Count Successful playbacks
-    - dynamic styling of page
-        - Side bars will adjust to X size, then be pop outs
+## Example
+![Complete Page, colorblind mode](https://imgur.com/a/2FLKeh9.jpg)
+[Game Link](https://dardiet3.github.io/Simon/)
 
-### Post MVP
-Will not work top to bottom on list, will select from list adding a feature before stepping on to the next.
+## Current Features
+- Main game board with four illuminating squares.
+- New and random sequence each game.
+- Locally saved high score and leader board.
+- Instructions tab describing game instructions and mode features.
+- Four user selected game speeds.
+- Color Blind Mode to add pattern to the squares, allowing distinctions other than colors.
+- Progressive speed mode to increase speed as user progresses. 
+- Extreme Mode that will change the location of the squares after a random number of successful sequences. 
 
-* Features:
-    - Save score across reload
-    - Leader board
-    - Achievements
-    - Custom Shape and Color pallets
-        - Select two or three shape options
-        - Offer two or three color modes
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- Google Fonts
 
-* Functions:
-    - Hard mode: 
-        - Increased speed of presentation
-    - Progressive Mode:
-        - For every 10 successful completions presentation speed increases
-    - Simon Says Mode:
-        - Turn it in to simon says
-    - Extreme: 
-        - More than four colors
-        - Colors change location after [3-7] successful playbacks but color order stays the same
-    - Accessible
-        - Display (“Read”) sequence of numbers or letters
-        - Same as colors only have set of four to choose from 
+## Getting Started
+To play this game, simply follow the game link above. 
+        
+## Problems Still Unsolved
+- When instruction menu drops down, the slider buttons on the control pannel show through the menu.
 
-
+## Contribute
+- **Source Code:** https://github.com/DarDiet3/Simon
+- **Issue Tracker:** https://github.com/DarDiet3/Simon/issues
 
 
