@@ -325,7 +325,6 @@ function checkLeaderBoard(score) {
             name = prompt("Congrats! You're on the leader board! Please enter your name!");
             newEntry = [score, name];
             topScores.splice(1, 0, newEntry)
-            console.log(topScores);
             topScores.pop();
             updateLeaderBoard();
             localStorage.setItem("topScores", JSON.stringify(topScores));
@@ -334,7 +333,6 @@ function checkLeaderBoard(score) {
             name = prompt("Congrats! You're on the leader board! Please enter your name!");
             newEntry = [score, name];
             topScores.splice(2, 0, newEntry)
-            console.log(topScores);
             topScores.pop()
             updateLeaderBoard();
             localStorage.setItem("topScores", JSON.stringify(topScores));
@@ -343,7 +341,6 @@ function checkLeaderBoard(score) {
             name = prompt("Congrats! You're on the leader board! Please enter your name!");
             newEntry = [score, name];
             topScores.splice(3, 0, newEntry)
-            console.log(topScores);
             topScores.pop()
             updateLeaderBoard();
             localStorage.setItem("topScores", JSON.stringify(topScores));
@@ -352,7 +349,6 @@ function checkLeaderBoard(score) {
             name = prompt("Congrats! You just snuck on to the leader board! Please enter your name!");
             newEntry = [score, name];
             topScores.splice(4, 0, newEntry)
-            console.log(topScores);
             updateLeaderBoard();
             localStorage.setItem("topScores", JSON.stringify(topScores));
             break;
