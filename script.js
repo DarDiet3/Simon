@@ -216,7 +216,6 @@ function confirmSelection() {
             idUserSelected = [];
             clicks = 0;
             correctSequences ++;
-            console.log(correctSequences)
             if(speedProgression) {
                 if(correctSequences !== 0 && correctSequences % 5 === 0) {
                     gameSpeed -= 25;
@@ -533,21 +532,17 @@ function extremeModeHandler() {
             switch(boxCount) {
                 case 1:
                     column = 2;
-                    console.log([row, column]);
                     break;
                 case 2:
                     row = 2;
                     column = 1;
-                    console.log([row, column]);
                     break;
                 case 3: 
                     column = 2;
-                    console.log([row, column]);
                     break;
             }
             boxCount++;
             positions.splice(posIndex,1);
-            console.log(positions)
         }
         switchPoint += extremeSwitch;
     }
