@@ -48,6 +48,9 @@ h2.subtitle {
     width: 17vw;
     border-right: none;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     
 }
 
@@ -276,6 +279,7 @@ button:hover {
     border-radius: 8px;
     text-align: center;
     background: white;
+    margin-top: -25%;
 }
 .instructions h2 {
     margin: 0px;
@@ -317,6 +321,7 @@ button:hover {
     border: 3px solid #1C1E21;
     border-radius: 8px;
     text-align: center;
+    margin-top: 25px;
 }
 .controlPanel h2 {
     text-decoration: underline;
